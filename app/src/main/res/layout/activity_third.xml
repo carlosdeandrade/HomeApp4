@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.skyaccessteam.homeapp4.ThirdActivity">
+
+    <!--<TextView-->
+    <!--android:id="@+id/value3"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+        <!--android:text="TextView"-->
+    <!--android:layout_toEndOf="@+id/value2"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="0dp" />-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <View
+            android:id="@+id/rectangle_at_the_top"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/subtittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rectangle_at_the_top"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="Connection with my Sky HUB"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/deviceSSID_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subtittle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:hint="  "
+            android:text="@string/deviceSSID_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceSSID_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceSSID_Text"
+            android:layout_marginLeft="245dp"
+            android:hint="       "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceBSSID_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceSSID_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceBSSID_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceBSSID_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceBSSID_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceRSSI_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceBSSID_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceRSSI_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceRSSI_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceRSSI_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceMAC_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceRSSI_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceMAC_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceMAC_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceMAC_Text"
+            android:layout_alignRight="@id/deviceBSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceIP_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceMAC_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceIP_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceIP_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceIP_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/deviceFreq_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceIP_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceFreq_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceFreq_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceFreq_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceChannel_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceFreq_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceChannel_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceChannel_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceChannel_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceLinkSpeed_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceChannel_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceLinkSpeed_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceLinkSpeed_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceLinkSpeed_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/deviceNetId_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/deviceSSID_Text"
+            android:layout_below="@id/deviceLinkSpeed_Text"
+            android:layout_marginTop="8dp"
+            android:text="@string/deviceNetId_Text"
+            android:textColor="@color/color1"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/deviceNetId_Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/deviceNetId_Text"
+            android:layout_alignRight="@id/deviceSSID_Value"
+            android:hint="     "
+            android:textColor="@color/color1"
+            android:textSize="16dp" />
+
+
+        <!--<TextView-->
+        <!--android:id="@+id/value3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/deviceNetId_Value"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:textSize="20dp"-->
+        <!--android:layout_marginLeft="50dp"-->
+        <!--android:text="TextView" />-->
+
+        <Button
+            android:id="@+id/bv_getContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rectangle_at_the_bottom"
+            android:layout_below="@id/deviceNetId_Value"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="40dp"
+            android:text="@string/bv_getConnet"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/bv_getDeviceData"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/bv_getContent"
+            android:layout_marginLeft="180dp"
+
+
+            android:text="@string/bv_getDeviceData"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/bv_getGraphs"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+
+            android:layout_marginLeft="100dp"
+
+            android:layout_alignBottom="@id/rectangle_at_the_bottom"
+            android:text="@string/bv_getGraphs"
+            android:textSize="12dp" />
+
+        <View
+            android:id="@+id/rectangle_at_the_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

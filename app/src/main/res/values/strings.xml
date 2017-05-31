@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">HomeApp</string>
+
+    <string name="ssid_name">SSID </string>
+    <string name="bv_getConnet"> Scan my HUB </string>
+    <string name="wifiPass_text">Wireless Pass</string>
+    <string name="model_text">Model</string>
+    <string name="firmware_text">Firmware</string>
+    <string name="dslDriver_text">DSL Driver</string>
+    <string name="manufacturer_text">Manufacturer</string>
+    <string name="US_text">Upstream Speed</string>
+    <string name="DS_text">Downstream Speed</string>
+    <string name="bv_start">  START SCANNING MY NETWORK </string>
+    <string name="deviceSSID_Text">  SSID </string>
+    <string name="deviceBSSID_Text">  BSSID </string>
+    <string name="deviceMAC_Text">  MAC Address </string>
+    <string name="deviceFreq_Text">  Frequency </string>
+    <string name="deviceLinkSpeed_Text">  Link Speed </string>
+    <string name="deviceIP_Text">  IP Address </string>
+    <string name="deviceNetId_Text">  Network ID </string>
+    <string name="deviceChannel_Text">  Channel N </string>
+    <string name="deviceRSSI_Text">  RSSI Level </string>
+    <string name="bv_getDeviceData">  Scan the connection with my HUB </string>
+    <string name="bv_getGraphs">  Go to Graphs </string>
+
+</resources>
