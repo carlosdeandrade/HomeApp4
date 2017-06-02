@@ -2,6 +2,7 @@ package com.skyaccessteam.homeapp4;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
@@ -23,6 +24,7 @@ public class FourthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fourth);
 
         hola = (TextView)findViewById(R.id.textView55);
+        hola.setMovementMethod(new ScrollingMovementMethod());
         button55 = (Button)findViewById(R.id.button55);
 
         final String baseUrl4 = "http://192.168.0.1/sky_wlvis_site_survey.asp";
@@ -79,13 +81,22 @@ public class FourthActivity extends AppCompatActivity {
 
 
     private void getTextPag1() {
-        String elementId = "rssigraphplaceholder";
+        String elementId = "aplistplaceholder";
         webView.evaluateJavascript(
-                "(function() { return document.getElementById('" + elementId + "').textContent; })();",
+                "(function() { return document.getElementById('" + elementId + "').innerHTML; })();",
                 new ValueCallback<String>() {
                     @Override
                     public void onReceiveValue(String html) {
-                        String Manufacturer;
+                        String networkName;
+                        String networkAddress;
+                        String signal;
+                        String SNR;
+                        String bandwidth;
+                        String centerChannel;
+                        String controlChannel;
+                        String maxRate;
+                        String protocol;
+                        String security;
 
                         // --- Manufacturer ---
                         //Manufacturer = html.substring(html.indexOf("Manufacturer") + 17 , html.indexOf("Manufacturer") + 30);
