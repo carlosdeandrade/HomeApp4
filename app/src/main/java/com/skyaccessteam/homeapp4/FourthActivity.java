@@ -49,6 +49,7 @@ public class FourthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getTextPag1();
+
                 //getTextPage2();
             }
         });
@@ -103,38 +104,11 @@ public class FourthActivity extends AppCompatActivity {
                         String security;
                         String auxHTML = html;
                         String auxHTML2;
-                        //Log.d(TAG, html);
-                        //Log.d(TAG, auxHTML);
+                        int counter;
 
-//                        int count =0;
-//                        int index;
-//                        String [] lineStarts = new String[5];
-////
+
                         System.out.println(" lalalala ");
-
-                        String pattern="class=\\\"network\\\"";
-                        String sTemp = html;
-                        int counter = 0;
-
-                        while (sTemp.length() > 0) {
-                            int index = sTemp.indexOf(pattern);
-                            System.out.println("index: " + index);
-                            if (index == -1)
-                                break;
-
-                            sTemp = sTemp.substring(index + pattern.length(), sTemp.length());
-                            System.out.println("sTemp: " + sTemp);
-                            counter++;
-                        }
-
-                        System.out.println("counter: " + counter);
-
-                        // To print the value of the integer:
-                        nOfNetworks.setText(String.valueOf(counter));
-
-                       
-
-
+                        counter = getNOfNetworks(html);
 
 
 
@@ -153,6 +127,33 @@ public class FourthActivity extends AppCompatActivity {
                 });
 
     }
+
+     public int getNOfNetworks(String html){
+         String pattern="class=\\\"network\\\"";
+         String sTemp = html;
+         int counter = 0;
+
+         while (sTemp.length() > 0) {
+             int index = sTemp.indexOf(pattern);
+             System.out.println("index: " + index);
+             if (index == -1)
+                 break;
+
+             sTemp = sTemp.substring(index + pattern.length(), sTemp.length());
+             System.out.println("sTemp: " + sTemp);
+             counter++;
+         }
+
+         System.out.println("imprimiendo DESDE el metodo counter: " + counter);
+
+         // To print the value of the integer:
+         nOfNetworks.setText(String.valueOf(counter));
+         return counter;
+
+     }
+
+
+
 
 
 
