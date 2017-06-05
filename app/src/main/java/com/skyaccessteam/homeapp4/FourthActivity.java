@@ -1,5 +1,6 @@
 package com.skyaccessteam.homeapp4;
 
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -15,6 +16,7 @@ public class FourthActivity extends AppCompatActivity {
 
     TextView hola;
     WebView webView;
+    TextView nOfNetworks;
     Button button55;
     private static final String TAG= "homeAppDebug";
     private static final int TAG2= 0;
@@ -27,6 +29,7 @@ public class FourthActivity extends AppCompatActivity {
         hola = (TextView)findViewById(R.id.textView55);
         hola.setMovementMethod(new ScrollingMovementMethod());
         button55 = (Button)findViewById(R.id.button55);
+        nOfNetworks = (TextView)findViewById(R.id.nOfNetworks);
 
         final String baseUrl4 = "http://192.168.0.1/sky_wlvis_site_survey.asp";
         final String baseUrl2 = "http://admin:sky@192.168.0.1/sky_router_status.html";
@@ -99,23 +102,46 @@ public class FourthActivity extends AppCompatActivity {
                         String protocol;
                         String security;
                         String auxHTML = html;
-                        Log.d(TAG, html);
-                        Log.d(TAG, auxHTML);
-//                        int index = auxHTML.indexOf("class=\\\"network\\\"");
+                        String auxHTML2;
+                        //Log.d(TAG, html);
+                        //Log.d(TAG, auxHTML);
+
 //                        int count =0;
-//                        // tengo que contar la cantidad de redes que tengo
-//
-//
-//
-//
-//                        while (index != -1) {
-//                            count++;
-//                            auxHTML = auxHTML.substring(index + 1);
-//                            index = auxHTML.indexOf("class=\\\"network\\\"");
-//                            //Log.d(TAG2, count);
-//                            hola.setText(count);
-//
-//                        }
+//                        int index;
+//                        String [] lineStarts = new String[5];
+////
+                        System.out.println(" lalalala ");
+
+                        String pattern="class=\\\"network\\\"";
+                        String sTemp = html;
+                        int counter = 0;
+
+                        while (sTemp.length() > 0) {
+                            int index = sTemp.indexOf(pattern);
+                            System.out.println("index: " + index);
+                            if (index == -1)
+                                break;
+
+                            sTemp = sTemp.substring(index + pattern.length(), sTemp.length());
+                            System.out.println("sTemp: " + sTemp);
+                            counter++;
+                        }
+
+                        System.out.println("counter: " + counter);
+
+                        // To print the value of the integer:
+                        nOfNetworks.setText(String.valueOf(counter));
+
+                       
+
+
+
+
+
+
+
+
+
 
                         // --- networkName ---
 //                        networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23 , html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
@@ -127,6 +153,7 @@ public class FourthActivity extends AppCompatActivity {
                 });
 
     }
+
 
 
 

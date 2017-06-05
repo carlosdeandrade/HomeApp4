@@ -15,13 +15,14 @@
         <WebView
             android:id="@+id/wv_dummy3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300dp"
             />
 
         <TextView
             android:id="@+id/textView55"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/wv_dummy3"
             android:maxLines="2000"
             android:scrollbars="vertical"
             android:textSize="30dp"
@@ -37,7 +38,14 @@
             android:text="Button"
              />
 
-
+        <TextView
+            android:id="@+id/nOfNetworks"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_x="194dp"
+            android:layout_y="440dp"
+            android:text="TextView" />
 
     </RelativeLayout>
 
