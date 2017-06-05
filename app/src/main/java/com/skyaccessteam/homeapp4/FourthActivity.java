@@ -17,6 +17,7 @@ public class FourthActivity extends AppCompatActivity {
     WebView webView;
     Button button55;
     private static final String TAG= "homeAppDebug";
+    private static final int TAG2= 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,11 +98,29 @@ public class FourthActivity extends AppCompatActivity {
                         String maxRate;
                         String protocol;
                         String security;
-
-                        // --- Manufacturer ---
-                        //Manufacturer = html.substring(html.indexOf("Manufacturer") + 17 , html.indexOf("Manufacturer") + 30);
-                        hola.setText(html);
+                        String auxHTML = html;
                         Log.d(TAG, html);
+                        Log.d(TAG, auxHTML);
+//                        int index = auxHTML.indexOf("class=\\\"network\\\"");
+//                        int count =0;
+//                        // tengo que contar la cantidad de redes que tengo
+//
+//
+//
+//
+//                        while (index != -1) {
+//                            count++;
+//                            auxHTML = auxHTML.substring(index + 1);
+//                            index = auxHTML.indexOf("class=\\\"network\\\"");
+//                            //Log.d(TAG2, count);
+//                            hola.setText(count);
+//
+//                        }
+
+                        // --- networkName ---
+//                        networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23 , html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
+//                        hola.setText(networkName);
+//                        Log.d(TAG, networkName);
                         // --- end Manufacturer ---
 
                     }
