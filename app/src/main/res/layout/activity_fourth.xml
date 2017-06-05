@@ -15,28 +15,28 @@
         <WebView
             android:id="@+id/wv_dummy3"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="150dp"
              />
-
-        <TextView
-            android:id="@+id/textView55"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/wv_dummy3"
-            android:maxLines="2000"
-            android:scrollbars="vertical"
-            android:textSize="30dp"
-            android:hint="        "
-
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/button55"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView55"
+            android:layout_below="@id/wv_dummy3"
             android:text="Button"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/button55"
+            android:layout_marginLeft="100dp"
+            android:maxLines="2000"
+            android:scrollbars="vertical"
+
+            android:hint="textView55"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -45,49 +45,65 @@
             android:layout_width="wrap_content"
             android:textSize="20dp"
             android:layout_height="wrap_content"
-            android:layout_x="194dp"
-            android:layout_y="440dp"
+            android:layout_alignBaseline="@id/textView55"
+            android:layout_marginLeft="200dp"
             android:text="TextView"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="0dp" />
 
 
     
-    <TableLayout
-        android:id="@+id/table1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/wv_dummy3"
-      >
+    <!--<TableLayout-->
+        <!--android:id="@+id/table1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/wv_dummy3"-->
+      <!--&gt;-->
 
-        <TableRow
-            android:id="@+id/table1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="100">
+        <!--<TableRow-->
+            <!--android:id="@+id/table1"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:weightSum="100">-->
 
-            <TextView
-                android:id="@+id/tvValue1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                />
+            <!--<TextView-->
+                <!--android:id="@+id/tvValue1"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="50"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:textSize="20sp"-->
+                <!--/>-->
 
-            <TextView
-                android:id="@+id/tvValue2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                />
+            <!--<TextView-->
+                <!--android:id="@+id/tvValue2"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="50"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:textSize="20sp"-->
+                <!--/>-->
 
-        </TableRow>
+        <!--</TableRow>-->
 
 
-    </TableLayout>
+    <!--</TableLayout>-->
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:layout_below="@id/button55"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/graph">
+        </com.github.mikephil.charting.charts.BarChart>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:layout_below="@id/graph"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/graph2">
+        </com.github.mikephil.charting.charts.LineChart>
+
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
