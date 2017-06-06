@@ -92,16 +92,17 @@
         <com.github.mikephil.charting.charts.BarChart
             android:layout_below="@id/button55"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:id="@+id/graph">
         </com.github.mikephil.charting.charts.BarChart>
 
         <com.github.mikephil.charting.charts.LineChart
             android:layout_below="@id/graph"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="50dp"
             android:id="@+id/graph2">
         </com.github.mikephil.charting.charts.LineChart>
+
 
 
     </RelativeLayout>

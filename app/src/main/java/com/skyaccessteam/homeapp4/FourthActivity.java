@@ -1,5 +1,7 @@
 package com.skyaccessteam.homeapp4;
 
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,11 +35,21 @@ public class FourthActivity extends AppCompatActivity {
     Button button55;
     LineChart lineChart;
     BarChart barChart;
+    String[] myStringArray = new String[3];
 
     HorizontalBarChart HorChar;
 
     private static final String TAG= "homeAppDebug";
     private static final int TAG2= 0;
+
+
+    private float first_X = 50;
+    private float first_Y = 230;
+    private float end_X = 100;
+    private float end_Y = 230;
+    private float Max = 50;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +139,43 @@ public class FourthActivity extends AppCompatActivity {
 //        }
 
 
+
+
+
+
+//
+//
+//            public SinWave(Context context, AttributeSet attrs) {
+//                super(context, attrs);
+//            }
+//
+//            @Override
+//            protected void onDraw(Canvas canvas) {
+//                super.onDraw(canvas);
+//                Paint paint = new Paint() {
+//                    {
+//                        setStyle(Paint.Style.STROKE);
+//                        setStrokeCap(Paint.Cap.ROUND);
+//                        setStrokeWidth(0.7f);
+//                        setAntiAlias(true);
+//                        setColor(0xFFFF00FF);
+//                    }
+//                };
+//                final Path path = new Path();
+//                path.moveTo(first_X, first_Y);
+//                path.quadTo((first_X + end_X)/2, Max, end_X, end_Y);
+//                canvas.drawPath(path, paint);
+//            }
+//
+
+
+
+
+
+
+
+
+
         button55.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -185,26 +234,67 @@ public class FourthActivity extends AppCompatActivity {
                         String maxRate;
                         String protocol;
                         String security;
-                        String auxHTML = html;
-                        String auxHTML2;
+                        String auxHTML;
+                        String auxHTML2=html;
                         int counter;
-
+                        //int x =0;
 
                         System.out.println(" lalalala ");
                         counter = getNOfNetworks(html);
 
+                        //while ( x < counter) {
+                            // --- networkName ---
+                            networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23 , html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
+                            System.out.println(" network Name: " + networkName);
+                            hola.setText(networkName);
+                            Log.d(TAG, networkName);
+                             // --- end networkName ---
+
+                            // --- signal ---
+                            auxHTML = html.substring(html.indexOf("u003Cdiv class=\\\"wtht1 brcm\\\" style=\\\"width:80px;\\\">\\u003C/div>\\u003C/div>\\u003C/span>") +86 , html.length());
+                            signal = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
+                       // System.out.println(":auxhtml ahora es : "+ auxHTML);
+                        System.out.println(":signal es : "+ signal);
+
+                            // --- end signal ---
+
+
+                            // --- bandwidth ---
+                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">")+66 , auxHTML.length());
+                        //System.out.println(" auxHTML desde el bandwidth1 es "+ auxHTML);
+                        auxHTML = auxHTML.substring(auxHTML.indexOf("003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">") + 61, auxHTML.length());
+                            bandwidth = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
+                            //System.out.println(" auxHTML desde el bandwidth2 es "+ auxHTML);
+                            System.out.println("bandwidth: "+ bandwidth);
+                            // --- end bandwidth ---
+
+                            // --- center channel ---
+                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">")+52 , auxHTML.length());
+                            centerChannel = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
+                            //System.out.println(" auxHTML desde center channel es "+ auxHTML);
+                            System.out.println("center channel: "+ centerChannel);
+                            // --- end center channel ---
+                        System.out.println("todo el string: "+ auxHTML2);
+
+
+//                        int i;
+//                        for (i = 1; i <= 3; i++) {
+//                            int x = 0;
+//                            x += (i * 3);
+//                            array.push(x);
+//
+//                        }
+//                        System.out.println(" eeee "+ );
+
+
+                           // x++;
+
+                       // }
 
 
 
 
 
-
-
-                        // --- networkName ---
-//                        networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23 , html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
-//                        hola.setText(networkName);
-//                        Log.d(TAG, networkName);
-                        // --- end Manufacturer ---
 
                     }
                 });
