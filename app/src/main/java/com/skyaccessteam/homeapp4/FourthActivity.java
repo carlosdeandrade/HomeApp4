@@ -257,23 +257,31 @@ public class FourthActivity extends AppCompatActivity {
                         Float a;
                         Float b;
                         Float c;
-                        Float height;
+                        Float y;
+                        Float dBm;
+                        float percentage;
+                        Float u = 3f;
                         Float bandwidthToChannel= Float.parseFloat(bandwidth)/5;
                         b = Float.parseFloat(centerChannel);
                         a = Float.parseFloat(centerChannel)-(bandwidthToChannel/2);
                         c = Float.parseFloat(centerChannel)+(bandwidthToChannel/2);
-                        //height = Float.parseFloat(signal);
-                        height = 5f;
+                        dBm = Float.parseFloat(signal);
+                        percentage =  (dBm + 100);
+
                         System.out.println("el valor de a es: " +a);
                         System.out.println("el valor de b es: " +b);
                         System.out.println("el valor de c es: " +c);
 
-                        // prueba
+
+                        System.out.println("el valor de dBm es: " +dBm);
+                        System.out.println("el valor de percentage es: " +percentage);
                        // traido de thirdActivity netId +=  wifiInfo.getNetworkId();
+
+                        
 
                         List<ChartData> value2 = new ArrayList<>();
                         value2.add(new ChartData(0f, a)); //values.add(new ChartData(y,x));
-                        value2.add(new ChartData(height,b));
+                        value2.add(new ChartData(percentage,b));
                         value2.add(new ChartData(0f, c));
 
                         List<ChartData> value3 = new ArrayList<>();
@@ -286,8 +294,8 @@ public class FourthActivity extends AppCompatActivity {
 
                         // Defining X-axis labels
                         List<String> h_lables = new ArrayList<>();
-                        h_lables.add(" ");
-                        h_lables.add(" ");
+//                        h_lables.add(" ");
+//                        h_lables.add(" ");
                         h_lables.add("1");
                         h_lables.add("2");
                         h_lables.add("3");
@@ -303,6 +311,7 @@ public class FourthActivity extends AppCompatActivity {
                         h_lables.add("13");
 
                         multiLineChart.setHorizontal_label(h_lables);
+
 
                         multiLineChart.setCircleSize(1f);
                        // multiLineChart.setGesture(true);
@@ -347,6 +356,19 @@ public class FourthActivity extends AppCompatActivity {
          return counter;
 
      }
+
+
+//    public int getPowerPercentage(int power) {
+//        int i = 0;
+//        int MIN_DBM = -100;
+//        if (power <= MIN_DBM) {
+//            i = 0;
+//        } else {
+//            i = 100 + power;
+//        }
+//
+//        return i;
+//    }
 
 
 
