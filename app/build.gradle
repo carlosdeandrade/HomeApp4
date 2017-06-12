@@ -22,11 +22,14 @@ android {
 allprojects {
     repositories {
         maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/sj/maven/' }
+
     }
 }
 
 dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'com.numetriclabz.numandroidcharts:numandroidcharts:1.0.3'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

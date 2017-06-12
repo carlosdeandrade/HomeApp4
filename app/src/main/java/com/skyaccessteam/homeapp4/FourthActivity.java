@@ -24,8 +24,11 @@ import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.numetriclabz.numandroidcharts.ChartData;
+import com.numetriclabz.numandroidcharts.MultiLineChart;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FourthActivity extends AppCompatActivity {
 
@@ -36,6 +39,7 @@ public class FourthActivity extends AppCompatActivity {
     LineChart lineChart;
     BarChart barChart;
     String[] myStringArray = new String[3];
+    MultiLineChart multiLineChart;
 
     HorizontalBarChart HorChar;
 
@@ -60,8 +64,9 @@ public class FourthActivity extends AppCompatActivity {
         hola.setMovementMethod(new ScrollingMovementMethod());
         button55 = (Button)findViewById(R.id.button55);
         nOfNetworks = (TextView)findViewById(R.id.nOfNetworks);
-        lineChart = (LineChart)findViewById(R.id.graph2);
-        barChart = (BarChart)findViewById(R.id.graph);
+       // lineChart = (LineChart)findViewById(R.id.graph2);
+        //barChart = (BarChart)findViewById(R.id.graph);
+        multiLineChart = (MultiLineChart) findViewById(R.id.graph);
 
         final String baseUrl4 = "http://192.168.0.1/sky_wlvis_site_survey.asp";
         final String baseUrl2 = "http://admin:sky@192.168.0.1/sky_router_status.html";
@@ -75,99 +80,55 @@ public class FourthActivity extends AppCompatActivity {
         webView.loadUrl(baseUrl4);
 
 
-        //---- Starts the Bars Graph
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(104f, 0));
-
-        entries.add(new BarEntry(80f, 1));
-        entries.add(new BarEntry(60f, 2));
-        entries.add(new BarEntry(100f, 3));
-        entries.add(new BarEntry(50f, 4));
-        entries.add(new BarEntry(30f, 5));
-        entries.add(new BarEntry(80f, 6));
-        entries.add(new BarEntry(60f, 7));
-        entries.add(new BarEntry(100f, 8));
-        entries.add(new BarEntry(50f, 9));
-
-        entries.add(new BarEntry(100f, 11));
-        entries.add(new BarEntry(50f, 12));
-        entries.add(new BarEntry(30f, 13));
-
-        BarDataSet dataset = new BarDataSet(entries, "Channels");
-
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("1");
-        labels.add("2");
-        labels.add("3");
-        labels.add("4");
-        labels.add("5");
-        labels.add("6");
-        labels.add("7");
-        labels.add("8");
-        labels.add("9");
-        labels.add("10");
-        labels.add("11");
-        labels.add("12");
-        labels.add("13");
-
-//        BarChart chart = new BarChart(this);
-//        setContentView(chart);
-
-        BarData data = new BarData(labels, dataset);
-        barChart.setData(data);
-
-        barChart.setDescription("2.4GHz Frequency Spectrum");
-
-        barChart.setTouchEnabled(true);
-        barChart.setDragEnabled(true);
-        barChart.setScaleEnabled(true);
-        dataset.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        //---- Ends the Bars Graph
-
-
-//        double x=0;
-//        int numDataPoints = 1000;
+//        //---- Starts the Bars Graph
+//        ArrayList<BarEntry> entries = new ArrayList<>();
+//        entries.add(new BarEntry(104f, 0));
 //
-//        for (int i=0; i<numDataPoints; i++) {
-//            float sinFunction = Float.parseFloat(String.valueOf(Math.sin(x)));
-//            float cosFunction = Float.parseFloat(String.valueOf(Math.cos(x)));
-//            x=x+0.1;
-//            yAXESsin.add(new Entry(sinFunction,i));
-//            yAXEScos.add(new Entry(cosFunction,i));
+//        entries.add(new BarEntry(80f, 1));
+//        entries.add(new BarEntry(60f, 2));
+//        entries.add(new BarEntry(100f, 3));
+//        entries.add(new BarEntry(50f, 4));
+//        entries.add(new BarEntry(30f, 5));
+//        entries.add(new BarEntry(80f, 6));
+//        entries.add(new BarEntry(60f, 7));
+//        entries.add(new BarEntry(100f, 8));
+//        entries.add(new BarEntry(50f, 9));
 //
-//        }
-
-
-
-
-
-
+//        entries.add(new BarEntry(100f, 11));
+//        entries.add(new BarEntry(50f, 12));
+//        entries.add(new BarEntry(30f, 13));
 //
+//        BarDataSet dataset = new BarDataSet(entries, "Channels");
 //
-//            public SinWave(Context context, AttributeSet attrs) {
-//                super(context, attrs);
-//            }
+//        ArrayList<String> labels = new ArrayList<String>();
+//        labels.add("1");
+//        labels.add("2");
+//        labels.add("3");
+//        labels.add("4");
+//        labels.add("5");
+//        labels.add("6");
+//        labels.add("7");
+//        labels.add("8");
+//        labels.add("9");
+//        labels.add("10");
+//        labels.add("11");
+//        labels.add("12");
+//        labels.add("13");
 //
-//            @Override
-//            protected void onDraw(Canvas canvas) {
-//                super.onDraw(canvas);
-//                Paint paint = new Paint() {
-//                    {
-//                        setStyle(Paint.Style.STROKE);
-//                        setStrokeCap(Paint.Cap.ROUND);
-//                        setStrokeWidth(0.7f);
-//                        setAntiAlias(true);
-//                        setColor(0xFFFF00FF);
-//                    }
-//                };
-//                final Path path = new Path();
-//                path.moveTo(first_X, first_Y);
-//                path.quadTo((first_X + end_X)/2, Max, end_X, end_Y);
-//                canvas.drawPath(path, paint);
-//            }
+////        BarChart chart = new BarChart(this);
+////        setContentView(chart);
 //
-
+//        BarData data = new BarData(labels, dataset);
+//        barChart.setData(data);
+//
+//        barChart.setDescription("2.4GHz Frequency Spectrum");
+//
+//        barChart.setTouchEnabled(true);
+//        barChart.setDragEnabled(true);
+//        barChart.setScaleEnabled(true);
+//        dataset.setColors(ColorTemplate.JOYFUL_COLORS);
+//
+//        //---- Ends the Bars Graph
 
 
 
@@ -238,6 +199,10 @@ public class FourthActivity extends AppCompatActivity {
                         String auxHTML2=html;
                         int counter;
                         //int x =0;
+                        int bucky[] = new int [10];
+                        String array[] = new String[10];
+
+
 
                         System.out.println(" lalalala ");
                         counter = getNOfNetworks(html);
@@ -276,18 +241,76 @@ public class FourthActivity extends AppCompatActivity {
                             // --- end center channel ---
                         System.out.println("todo el string: "+ auxHTML2);
 
-
-//                        int i;
-//                        for (i = 1; i <= 3; i++) {
-//                            int x = 0;
-//                            x += (i * 3);
-//                            array.push(x);
-//
-//                        }
-//                        System.out.println(" eeee "+ );
+                        int num = 20;
 
 
-                           // x++;
+//                        // Aqui empieza el ploteo ----------------------------------------------------------------
+
+//                        List<ChartData> value1 = new ArrayList<>();
+//                        value1.add(new ChartData(2f, 1f)); //values.add(new ChartData(y,x));
+//                        value1.add(new ChartData(3f, 3f));
+//                        value1.add(new ChartData(5f, 5f));
+//                        value1.add(new ChartData(8f, 8f));
+//                        value1.add(new ChartData(9f, 9f));
+//                        value1.add(new ChartData(12f, 12f));
+
+                        Float a;
+                        Float b;
+                        Float c;
+                        Float height;
+                        Float bandwidthToChannel= Float.parseFloat(bandwidth)/5;
+                        b = Float.parseFloat(centerChannel);
+                        a = Float.parseFloat(centerChannel)-(bandwidthToChannel/2);
+                        c = Float.parseFloat(centerChannel)+(bandwidthToChannel/2);
+                        //height = Float.parseFloat(signal);
+                        height = 5f;
+                        System.out.println("el valor de a es: " +a);
+                        System.out.println("el valor de b es: " +b);
+                        System.out.println("el valor de c es: " +c);
+
+                        // prueba
+                       // traido de thirdActivity netId +=  wifiInfo.getNetworkId();
+
+                        List<ChartData> value2 = new ArrayList<>();
+                        value2.add(new ChartData(0f, a)); //values.add(new ChartData(y,x));
+                        value2.add(new ChartData(height,b));
+                        value2.add(new ChartData(0f, c));
+
+                        List<ChartData> value3 = new ArrayList<>();
+                       // value3.add(new ChartData(value1));
+                        value3.add(new ChartData(value2));
+                       // value3.add(new ChartData(value4));
+
+                        multiLineChart.setData(value3);
+
+
+                        // Defining X-axis labels
+                        List<String> h_lables = new ArrayList<>();
+                        h_lables.add(" ");
+                        h_lables.add(" ");
+                        h_lables.add("1");
+                        h_lables.add("2");
+                        h_lables.add("3");
+                        h_lables.add("4");
+                        h_lables.add("5");
+                        h_lables.add("6");
+                        h_lables.add("7");
+                        h_lables.add("8");
+                        h_lables.add("9");
+                        h_lables.add("10");
+                        h_lables.add("11");
+                        h_lables.add("12");
+                        h_lables.add("13");
+
+                        multiLineChart.setHorizontal_label(h_lables);
+
+                        multiLineChart.setCircleSize(1f);
+                       // multiLineChart.setGesture(true);
+
+
+//                        // Aqui termina el ploteo ----------------------------------------------------------------
+
+
 
                        // }
 
