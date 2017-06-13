@@ -2,10 +2,12 @@ package com.skyaccessteam.homeapp4;
 
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.FloatProperty;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
@@ -196,52 +198,120 @@ public class FourthActivity extends AppCompatActivity {
                         String protocol;
                         String security;
                         String auxHTML;
-                        String auxHTML2=html;
+                        String auxHTML2 = html;
                         int counter;
-                        //int x =0;
-                        int bucky[] = new int [10];
+                        int x = 0;
+                        int bucky[] = new int[10];
                         String array[] = new String[10];
 
 
-
-                        System.out.println(" lalalala ");
                         counter = getNOfNetworks(html);
 
-                        //while ( x < counter) {
+                        // while loop for the number of available networks found
+
+                        float percentage = 0;
+                        Float a = null;
+                        Float b = null;
+                        Float c = null;
+                        Float dBm = null;
+                        Float bandwidthToChannel = null;
+
+                        // la condicion era while x < counter.. voy a usar x < 3 por ahora
+                        while (x < counter) {
+
+                            //System.out.println(" aqui empieza el x igual a " + x);
                             // --- networkName ---
-                            networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23 , html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
+                            //System.out.println(" ------------------------- html1: " + html);
+                            networkName = html.substring(html.indexOf("u003Ctd align=\\\"left\\\">") + 23, html.indexOf("\\u003C/td>\\u003Ctd class=\\\"network\\\" "));
+                            System.out.println("--------------------------");
+                            System.out.println("--------------------------");
                             System.out.println(" network Name: " + networkName);
+                            System.out.println("--------------------------");
                             hola.setText(networkName);
                             Log.d(TAG, networkName);
-                             // --- end networkName ---
+                            // --- end networkName ---
 
                             // --- signal ---
-                            auxHTML = html.substring(html.indexOf("u003Cdiv class=\\\"wtht1 brcm\\\" style=\\\"width:80px;\\\">\\u003C/div>\\u003C/div>\\u003C/span>") +86 , html.length());
+                            //System.out.println(" ------------------------- html2: " + html);
+
+                            auxHTML = html.substring(html.indexOf("wtht1 ") + 70, html.length());
+                            //System.out.println(" ------------------------- auxHATML: " + auxHTML);
                             signal = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
-                       // System.out.println(":auxhtml ahora es : "+ auxHTML);
-                        System.out.println(":signal es : "+ signal);
+                            // System.out.println(":auxhtml ahora es : "+ auxHTML);
+                            System.out.println(":signal es : " + signal);
 
                             // --- end signal ---
 
 
                             // --- bandwidth ---
-                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">")+66 , auxHTML.length());
-                        //System.out.println(" auxHTML desde el bandwidth1 es "+ auxHTML);
-                        auxHTML = auxHTML.substring(auxHTML.indexOf("003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">") + 61, auxHTML.length());
+                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">") + 66, auxHTML.length());
+                            //System.out.println(" auxHTML desde el bandwidth1 es "+ auxHTML);
+                            auxHTML = auxHTML.substring(auxHTML.indexOf("003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">") + 61, auxHTML.length());
                             bandwidth = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
                             //System.out.println(" auxHTML desde el bandwidth2 es "+ auxHTML);
-                            System.out.println("bandwidth: "+ bandwidth);
+                            System.out.println("bandwidth: " + bandwidth);
                             // --- end bandwidth ---
 
                             // --- center channel ---
-                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">")+52 , auxHTML.length());
+                            auxHTML = auxHTML.substring(auxHTML.indexOf("u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%;\\\">") + 52, auxHTML.length());
                             centerChannel = auxHTML.substring(0, auxHTML.indexOf("\\u003C/td>\\u003Ctd align=\\\"right\\\" style=\\\"padding-right:2%"));
                             //System.out.println(" auxHTML desde center channel es "+ auxHTML);
-                            System.out.println("center channel: "+ centerChannel);
+                            System.out.println("center channel: " + centerChannel);
                             // --- end center channel ---
-                        System.out.println("todo el string: "+ auxHTML2);
+//                            System.out.println("auxHTML2 " + auxHTML2);
+//                            System.out.println("html " + html);
+//                            System.out.println("auxHTML " + auxHTML);
 
-                        int num = 20;
+
+
+//                            System.out.println("dentro de ciclo");
+//
+//                            System.out.println("VALORES ANTES DE EMPEZAR ESTA SEGUNDA PARTE: -----------------------");
+//                            System.out.println("bandwidthToChannel: " + bandwidthToChannel);
+//                            System.out.println("bandwidth: " + bandwidth);
+//                            System.out.println("a: " + a);
+//                            System.out.println("b: " + b);
+//                            System.out.println("c: " + c);
+//                            System.out.println("dBm: " + dBm);
+//                            System.out.println("percentage: " + percentage);
+//                            System.out.println("---------------- FIN -----------------------");
+//                            System.out.println(" parse float bandiwidth " + Float.parseFloat(bandwidth));
+//                            bandwidthToChannel = null;
+//                            dBm = null;
+//                            System.out.println(" bandwidth to Channel null " + bandwidthToChannel);
+//                            bandwidthToChannel = Float.parseFloat(bandwidth) / 5;
+//                            System.out.println(" bandwidth to Channel dividido entre cinco" + bandwidthToChannel);
+//                            b = Float.parseFloat(centerChannel);
+//                            System.out.println(" valor de center channel" + centerChannel);
+//                            System.out.println(" valor de b" + b);
+//                            a = Float.parseFloat(centerChannel) - (bandwidthToChannel / 2);
+//                            System.out.println(" valor de center channel" + centerChannel);
+//                            System.out.println(" valor de a" + a);
+//                            c = Float.parseFloat(centerChannel) + (bandwidthToChannel / 2);
+//                            System.out.println(" valor de center channel" + centerChannel);
+//                            System.out.println(" valor de c" + c);
+//                            System.out.println(" dBm  null " + dBm);
+//                            System.out.println(" signal antes del float to parse " + signal);
+//                            dBm = Float.parseFloat(signal);
+//                            System.out.println(" valor de signal" + signal);
+//                            System.out.println(" valor de dBm" + dBm);
+//                            percentage = (dBm + 100);
+//                            System.out.println(" valor de percentage" + percentage);
+//
+//
+//                            System.out.println("el valor de a es: " + a);
+//                            System.out.println("el valor de b es: " + b);
+//                            System.out.println("el valor de c es: " + c);
+//
+//
+//                            System.out.println("el valor de dBm es: " + dBm);
+//                            System.out.println("el valor de percentage es: " + percentage);
+//                            System.out.println("----------------------------------------------");
+                            html=auxHTML;
+                            x = x+1;
+                        }
+
+                        //System.out.println("SALI de ciclo");
 
 
 //                        // Aqui empieza el ploteo ----------------------------------------------------------------
@@ -254,78 +324,66 @@ public class FourthActivity extends AppCompatActivity {
 //                        value1.add(new ChartData(9f, 9f));
 //                        value1.add(new ChartData(12f, 12f));
 
-                        Float a;
-                        Float b;
-                        Float c;
-                        Float y;
-                        Float dBm;
-                        float percentage;
-                        Float u = 3f;
-                        Float bandwidthToChannel= Float.parseFloat(bandwidth)/5;
-                        b = Float.parseFloat(centerChannel);
-                        a = Float.parseFloat(centerChannel)-(bandwidthToChannel/2);
-                        c = Float.parseFloat(centerChannel)+(bandwidthToChannel/2);
-                        dBm = Float.parseFloat(signal);
-                        percentage =  (dBm + 100);
+                        // desde aqui descomentar
+                           // Float y;
 
-                        System.out.println("el valor de a es: " +a);
-                        System.out.println("el valor de b es: " +b);
-                        System.out.println("el valor de c es: " +c);
+//                           // Float u = 3f;
+//
+//                            // traido de thirdActivity netId +=  wifiInfo.getNetworkId();
+//
+//
+//                            System.out.println(" aqui termina el x igual a " + x);
+//                            System.out.println(" ahora x ++ ");
+//                            x = x+1;
+//                            System.out.println(" nuevo valor de x: " + x);
+//
+//
+//                        List<ChartData> value2 = new ArrayList<>();
+//                        value2.add(new ChartData(0f, a)); //values.add(new ChartData(y,x));
+//                        value2.add(new ChartData(percentage, b));
+//                        value2.add(new ChartData(0f, c));
+//
+//                        List<ChartData> value3 = new ArrayList<>();
+//                        // value3.add(new ChartData(value1));
+//                        value3.add(new ChartData(value2));
+//                        // value3.add(new ChartData(value4));
+//
+//                        multiLineChart.setData(value3);
+//
+//
+//
+//
+//                        // Defining X-axis labels
+//                        List<String> h_lables = new ArrayList<>();
+////                        h_lables.add(" ");
+////                        h_lables.add(" ");
+//                        h_lables.add("1");
+//                        h_lables.add("2");
+//                        h_lables.add("3");
+//                        h_lables.add("4");
+//                        h_lables.add("5");
+//                        h_lables.add("6");
+//                        h_lables.add("7");
+//                        h_lables.add("8");
+//                        h_lables.add("9");
+//                        h_lables.add("10");
+//                        h_lables.add("11");
+//                        h_lables.add("12");
+//                        h_lables.add("13");
+//
+//                        multiLineChart.setHorizontal_label(h_lables);
+//
+//
+//                        multiLineChart.setCircleSize(1f);
+//
+//                        delay();
 
-
-                        System.out.println("el valor de dBm es: " +dBm);
-                        System.out.println("el valor de percentage es: " +percentage);
-                       // traido de thirdActivity netId +=  wifiInfo.getNetworkId();
-
-                        
-
-                        List<ChartData> value2 = new ArrayList<>();
-                        value2.add(new ChartData(0f, a)); //values.add(new ChartData(y,x));
-                        value2.add(new ChartData(percentage,b));
-                        value2.add(new ChartData(0f, c));
-
-                        List<ChartData> value3 = new ArrayList<>();
-                       // value3.add(new ChartData(value1));
-                        value3.add(new ChartData(value2));
-                       // value3.add(new ChartData(value4));
-
-                        multiLineChart.setData(value3);
-
-
-                        // Defining X-axis labels
-                        List<String> h_lables = new ArrayList<>();
-//                        h_lables.add(" ");
-//                        h_lables.add(" ");
-                        h_lables.add("1");
-                        h_lables.add("2");
-                        h_lables.add("3");
-                        h_lables.add("4");
-                        h_lables.add("5");
-                        h_lables.add("6");
-                        h_lables.add("7");
-                        h_lables.add("8");
-                        h_lables.add("9");
-                        h_lables.add("10");
-                        h_lables.add("11");
-                        h_lables.add("12");
-                        h_lables.add("13");
-
-                        multiLineChart.setHorizontal_label(h_lables);
-
-
-                        multiLineChart.setCircleSize(1f);
-                       // multiLineChart.setGesture(true);
-
-
+                        // hasta aqui descomentar
+                        // multiLineChart.setGesture(true);
 //                        // Aqui termina el ploteo ----------------------------------------------------------------
 
 
-
-                       // }
-
-
-
-
+                        // }
 
 
                     }
@@ -356,6 +414,19 @@ public class FourthActivity extends AppCompatActivity {
          return counter;
 
      }
+
+    public void delay (){
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                //prueba.setText("hola");
+                //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
+            }
+        }, 5000);
+
+    }
 
 
 //    public int getPowerPercentage(int power) {
