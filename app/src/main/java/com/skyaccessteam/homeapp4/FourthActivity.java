@@ -217,7 +217,7 @@ public class FourthActivity extends AppCompatActivity {
                         Float bandwidthToChannel = null;
 
                         // la condicion era while x < counter.. voy a usar x < 3 por ahora
-                        while (x < counter) {
+                       // while (x < counter) {
 
                             //System.out.println(" aqui empieza el x igual a " + x);
                             // --- networkName ---
@@ -264,52 +264,52 @@ public class FourthActivity extends AppCompatActivity {
 
 
 
-//                            System.out.println("dentro de ciclo");
-//
-//                            System.out.println("VALORES ANTES DE EMPEZAR ESTA SEGUNDA PARTE: -----------------------");
-//                            System.out.println("bandwidthToChannel: " + bandwidthToChannel);
-//                            System.out.println("bandwidth: " + bandwidth);
-//                            System.out.println("a: " + a);
-//                            System.out.println("b: " + b);
-//                            System.out.println("c: " + c);
-//                            System.out.println("dBm: " + dBm);
-//                            System.out.println("percentage: " + percentage);
-//                            System.out.println("---------------- FIN -----------------------");
-//                            System.out.println(" parse float bandiwidth " + Float.parseFloat(bandwidth));
-//                            bandwidthToChannel = null;
-//                            dBm = null;
-//                            System.out.println(" bandwidth to Channel null " + bandwidthToChannel);
-//                            bandwidthToChannel = Float.parseFloat(bandwidth) / 5;
-//                            System.out.println(" bandwidth to Channel dividido entre cinco" + bandwidthToChannel);
-//                            b = Float.parseFloat(centerChannel);
-//                            System.out.println(" valor de center channel" + centerChannel);
-//                            System.out.println(" valor de b" + b);
-//                            a = Float.parseFloat(centerChannel) - (bandwidthToChannel / 2);
-//                            System.out.println(" valor de center channel" + centerChannel);
-//                            System.out.println(" valor de a" + a);
-//                            c = Float.parseFloat(centerChannel) + (bandwidthToChannel / 2);
-//                            System.out.println(" valor de center channel" + centerChannel);
-//                            System.out.println(" valor de c" + c);
-//                            System.out.println(" dBm  null " + dBm);
-//                            System.out.println(" signal antes del float to parse " + signal);
-//                            dBm = Float.parseFloat(signal);
-//                            System.out.println(" valor de signal" + signal);
-//                            System.out.println(" valor de dBm" + dBm);
-//                            percentage = (dBm + 100);
-//                            System.out.println(" valor de percentage" + percentage);
-//
-//
-//                            System.out.println("el valor de a es: " + a);
-//                            System.out.println("el valor de b es: " + b);
-//                            System.out.println("el valor de c es: " + c);
-//
-//
-//                            System.out.println("el valor de dBm es: " + dBm);
-//                            System.out.println("el valor de percentage es: " + percentage);
-//                            System.out.println("----------------------------------------------");
+                            System.out.println("dentro de ciclo");
+
+                            System.out.println("VALORES ANTES DE EMPEZAR ESTA SEGUNDA PARTE: -----------------------");
+                            System.out.println("bandwidthToChannel: " + bandwidthToChannel);
+                            System.out.println("bandwidth: " + bandwidth);
+                            System.out.println("a: " + a);
+                            System.out.println("b: " + b);
+                            System.out.println("c: " + c);
+                            System.out.println("dBm: " + dBm);
+                            System.out.println("percentage: " + percentage);
+                            System.out.println("---------------- FIN -----------------------");
+                            System.out.println(" parse float bandiwidth " + Float.parseFloat(bandwidth));
+                            bandwidthToChannel = null;
+                            dBm = null;
+                            System.out.println(" bandwidth to Channel null " + bandwidthToChannel);
+                            bandwidthToChannel = Float.parseFloat(bandwidth) / 5;
+                            System.out.println(" bandwidth to Channel dividido entre cinco" + bandwidthToChannel);
+                            b = Float.parseFloat(centerChannel);
+                            System.out.println(" valor de center channel" + centerChannel);
+                            System.out.println(" valor de b" + b);
+                            a = Float.parseFloat(centerChannel) - (bandwidthToChannel / 2);
+                            System.out.println(" valor de center channel" + centerChannel);
+                            System.out.println(" valor de a" + a);
+                            c = Float.parseFloat(centerChannel) + (bandwidthToChannel / 2);
+                            System.out.println(" valor de center channel" + centerChannel);
+                            System.out.println(" valor de c" + c);
+                            System.out.println(" dBm  null " + dBm);
+                            System.out.println(" signal antes del float to parse " + signal);
+                            dBm = Float.parseFloat(signal);
+                            System.out.println(" valor de signal" + signal);
+                            System.out.println(" valor de dBm" + dBm);
+                            percentage = (dBm + 100);
+                            System.out.println(" valor de percentage" + percentage);
+
+
+                            System.out.println("el valor de a es: " + a);
+                            System.out.println("el valor de b es: " + b);
+                            System.out.println("el valor de c es: " + c);
+
+
+                            System.out.println("el valor de dBm es: " + dBm);
+                            System.out.println("el valor de percentage es: " + percentage);
+                            System.out.println("----------------------------------------------");
                             html=auxHTML;
                             x = x+1;
-                        }
+                        //} final del while
 
                         //System.out.println("SALI de ciclo");
 
