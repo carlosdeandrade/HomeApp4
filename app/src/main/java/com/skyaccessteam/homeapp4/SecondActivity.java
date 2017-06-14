@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
@@ -36,14 +37,17 @@ public class SecondActivity extends AppCompatActivity {
     TextView t1;
     TextView t2;
     ImageView hub;
+    ProgressBar progressBar;
+    Button bv_getGraphs;
+
     private static final String TAG= "homeAppDebug";
 
+    private int progressStatus =0;
+    private Handler handler = new Handler();
 
     final String baseUrl = "http://192.168.0.1";
     final String baseUrl2 = "http://admin:sky@192.168.0.1/sky_router_status.html";
     final String baseUrl3 = "http://admin:sky@192.168.0.1/sky_wireless_settings.html";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,8 @@ public class SecondActivity extends AppCompatActivity {
         bv_getContent = (Button)findViewById(R.id.bv_getContent);
         bv_getDeviceData = (Button)findViewById(R.id.bv_getDeviceData);
         hub = (ImageView) findViewById(R.id.iv_Hub3);
+        progressBar = (ProgressBar)findViewById(R.id.myProgressBar2);
+        bv_getGraphs = (Button) findViewById(R.id.bv_getGraphs);
 
         t1 = (TextView)findViewById(R.id.manufacturer_text);
         t1 = (TextView)findViewById(R.id.tv_SSID);
@@ -85,7 +91,6 @@ public class SecondActivity extends AppCompatActivity {
 //        t1.setTypeface(font2);
 //        t2.setTypeface(font3);
 
-
         webView = (WebView)findViewById(R.id.wv_dummy);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -98,11 +103,16 @@ public class SecondActivity extends AppCompatActivity {
         webView2.setWebViewClient(new WebViewClient());
         webView2.loadUrl(baseUrl3);
 
+        delay();
+
 
         bv_getContent.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
+                //progressBar.setVisibility(View.VISIBLE);
+               // secondProgressBar();
+
                 getTextPag1();
                getTextPage2();
             }
@@ -115,8 +125,50 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+
+
+        bv_getGraphs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this,FourthActivity.class));
+            }
+        });
+
        // getWifiInfo();
+        secondProgressBar();
     }
+
+    private void secondProgressBar(){
+
+        //progressBar.setVisibility(View.VISIBLE);
+
+        progressStatus =0;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (progressStatus <100){
+                    progressStatus += 1;
+                    handler.post(new Runnable(){
+                        public void run(){
+                            progressBar.setProgress(progressStatus);
+
+                        }
+                    });
+                    try {
+                        Thread.sleep(25);
+                    } catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+                //startActivity(new Intent(MainActivity.this,SecondActivity.class));
+            }
+        }).start();
+
+
+        //delay();
+    }
+
 
     private void getWifiInfo() {
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
@@ -133,7 +185,6 @@ public class SecondActivity extends AppCompatActivity {
 //                "document.getElementById('btnLogin').click();";
 //
 //        webView.loadUrl(loginJs);
-
 
     }
 
@@ -191,7 +242,6 @@ public class SecondActivity extends AppCompatActivity {
                         hub.setVisibility(View.VISIBLE);
                     }
                 });
-
     }
 
     private void getTextPage2() {
@@ -208,17 +258,13 @@ public class SecondActivity extends AppCompatActivity {
                        //delay();
                         Log.d(TAG, html2);
 
-
                         // --- WIFI Pass ---
                         WIFIPass = html2.substring(1, html2.length()-1);
                         passwordValue.setText(WIFIPass);
                         // --- end Manufacturer ---
 
-
-
                     }
                 });
-
     }
 
     public void delay (){
@@ -227,10 +273,16 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Do something after 5s = 5000ms
-                //prueba.setText("hola");
+                //bv_getContent.setVisibility(View.VISIBLE);
+                getTextPag1();
+                getTextPage2();
+                progressBar.setVisibility(View.INVISIBLE);
+                bv_getGraphs.setVisibility(View.VISIBLE);
+
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }
-        }, 5000);
+        }, 7000);
+
 
     }
 

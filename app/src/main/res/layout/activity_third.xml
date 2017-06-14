@@ -38,7 +38,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="11dp"
             android:text="Connection with my Sky HUB"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/color_subtitle"
             android:textSize="18dp"
 
             android:textStyle="bold" />
@@ -62,12 +62,14 @@
             android:layout_alignBaseline="@id/deviceSSID_Text"
             android:layout_marginLeft="245dp"
             android:hint="       "
+            android:visibility="visible"
             android:textColor="@color/color1"
             android:textSize="16dp" />
 
         <TextView
             android:id="@+id/deviceBSSID_Text"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/deviceSSID_Text"
             android:layout_below="@id/deviceSSID_Text"
@@ -83,6 +85,7 @@
             android:layout_alignBaseline="@id/deviceBSSID_Text"
             android:layout_alignRight="@id/deviceSSID_Value"
             android:hint="     "
+            android:visibility="gone"
             android:textColor="@color/color1"
             android:textSize="16dp" />
 
@@ -90,12 +93,12 @@
             android:id="@+id/deviceRSSI_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/deviceSSID_Text"
-            android:layout_below="@id/deviceBSSID_Text"
-            android:layout_marginTop="8dp"
             android:text="@string/deviceRSSI_Text"
+            android:layout_alignLeft="@+id/deviceSSID_Text"
             android:textColor="@color/color1"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:layout_below="@+id/deviceSSID_Text"
+             />
 
         <TextView
             android:id="@+id/deviceRSSI_Value"
@@ -114,6 +117,7 @@
             android:layout_alignLeft="@id/deviceSSID_Text"
             android:layout_below="@id/deviceRSSI_Text"
             android:layout_marginTop="8dp"
+            android:visibility="visible"
             android:text="@string/deviceMAC_Text"
             android:textColor="@color/color1"
             android:textSize="20dp" />
@@ -122,6 +126,7 @@
             android:id="@+id/deviceMAC_Value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             android:layout_alignBaseline="@id/deviceMAC_Text"
             android:layout_alignRight="@id/deviceBSSID_Value"
             android:hint="     "
@@ -134,6 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/deviceSSID_Text"
             android:layout_below="@id/deviceMAC_Text"
+            android:visibility="visible"
             android:layout_marginTop="8dp"
             android:text="@string/deviceIP_Text"
             android:textColor="@color/color1"
@@ -142,6 +148,7 @@
         <TextView
             android:id="@+id/deviceIP_Value"
             android:layout_width="wrap_content"
+            android:visibility="visible"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/deviceIP_Text"
             android:layout_alignRight="@id/deviceSSID_Value"
@@ -218,6 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/deviceSSID_Text"
+            android:visibility="gone"
             android:layout_below="@id/deviceLinkSpeed_Text"
             android:layout_marginTop="8dp"
             android:text="@string/deviceNetId_Text"
@@ -227,6 +235,7 @@
         <TextView
             android:id="@+id/deviceNetId_Value"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/deviceNetId_Text"
             android:layout_alignRight="@id/deviceSSID_Value"
@@ -245,44 +254,75 @@
         <!--android:layout_marginLeft="50dp"-->
         <!--android:text="TextView" />-->
 
-        <Button
-            android:id="@+id/bv_getContent"
+
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/myProgressBar3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_below="@id/deviceNetId_Text"
+            android:indeterminate="true"
+            android:visibility="visible"
+            android:max="100"
+            android:layout_marginTop="150dp"
+            android:layout_centerHorizontal="true"
+            android:minHeight="10dp"
+            android:minWidth="200dp"
+            android:progress="1"
+            />
+
+        <Button
+            android:id="@+id/bv_getContent"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_alignTop="@id/rectangle_at_the_bottom"
             android:layout_below="@id/deviceNetId_Value"
             android:layout_marginBottom="0dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="0dp"
+
             android:text="@string/bv_getConnet"
             android:textSize="14sp" />
 
+        <!--<Button-->
+            <!--android:id="@+id/aux"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@id/bv_getContent"-->
+            <!--android:layout_marginBottom="0dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginLeft="0dp"-->
+            <!--android:text="aaa"-->
+            <!--android:textSize="14sp" />-->
+
         <Button
             android:id="@+id/bv_getDeviceData"
-            android:layout_width="170dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/bv_getContent"
-            android:layout_marginLeft="180dp"
-
-
+            android:visibility="gone"
+            android:layout_marginLeft="160dp"
             android:text="@string/bv_getDeviceData"
-            android:textSize="12dp" />
+            android:textSize="11dp" />
 
         <Button
             android:id="@+id/bv_getGraphs"
-            android:layout_width="120dp"
+            android:layout_width="420dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="100dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
             android:layout_alignBottom="@id/rectangle_at_the_bottom"
             android:text="@string/bv_getGraphs"
             android:textSize="12dp" />
 
-        <View
-            android:id="@+id/rectangle_at_the_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white"
-            android:visibility="visible" />
+        <!--<View-->
+            <!--android:id="@+id/rectangle_at_the_bottom"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!---->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/white"-->
+            <!--android:visibility="visible" />-->
 
     </RelativeLayout>
 
