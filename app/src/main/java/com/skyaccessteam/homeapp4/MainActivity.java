@@ -1,9 +1,12 @@
 package com.skyaccessteam.homeapp4;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -31,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window w = getWindow();
+//            w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//            w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//        }
 
         progressBar = (ProgressBar)findViewById(R.id.myProgressBar);
         bv_start = (Button)findViewById(R.id.bv_start);

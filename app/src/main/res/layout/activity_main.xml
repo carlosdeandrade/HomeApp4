@@ -11,14 +11,17 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp"
+
         android:background="@color/white">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+
             app:srcCompat="@drawable/sky_logo"
-            android:layout_marginTop="20dp"
          />
 
         <Button
@@ -47,7 +50,7 @@
             android:layout_below="@id/imageView5"
             android:indeterminate="false"
             android:max="100"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
             android:minHeight="10dp"
             android:minWidth="200dp"

@@ -14,7 +14,7 @@ public class LandingPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
 
-        TextView description1 = (TextView) findViewById(R.id.description1);
+        //TextView description1 = (TextView) findViewById(R.id.description1);
         Button hubButton = (Button)findViewById(R.id.hubButton);
         Button mobileButton = (Button)findViewById(R.id.mobileButton);
 

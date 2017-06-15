@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<color name="color_subtitle">#0D47A1</color>
-    <color name="colorPrimary">#AD1457</color>
+<color name="color_subtitle">#1976D2</color>
+    <color name="colorPrimary">#C2185B</color>
 <color name="colorPrimaryDark">#7986CB</color>
 
 <color name="colorAccent">#FF4081</color>
 <color name="white">#FFFFFF</color>
     <color name="color1">#424242</color>
-    <color name="color2">#212121</color>
+    <color name="grey">#E0E0E0</color>
+
+    <!--<color name="colorPrimary">@drawable/gradient</color>-->
+    <!--<color name="colorPrimaryDark">#E0E0E3</color>-->
+    <!--<color name="colorAccent">#E0E0E4</color>-->
+
+
 
 </resources>

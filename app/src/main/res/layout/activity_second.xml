@@ -286,14 +286,14 @@
 
         <Button
             android:id="@+id/bv_getGraphs"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="70dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_centerHorizontal="true"
             android:layout_alignBottom="@id/rectangle_at_the_bottom"
             android:text="@string/bv_getGraphs"
             android:layout_marginBottom="30dp"
-            android:textSize="18dp" />
+            android:textSize="16dp" />
 
         <View
             android:id="@+id/rectangle_at_the_bottom"

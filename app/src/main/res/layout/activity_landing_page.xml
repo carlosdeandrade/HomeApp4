@@ -3,59 +3,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#EEEEEE"
     android:layout_height="match_parent"
     tools:context="com.skyaccessteam.homeapp4.LandingPage">
 
+
+
     <RelativeLayout
-        android:layout_width="330dp"
-        android:layout_height="323dp"
+        android:layout_width="360dp"
+        android:layout_height="495dp"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="20dp">
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:layout_marginTop="80dp"
+        android:id="@+id/hubButton"
+        android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+        android:layout_height="110dp"
+            android:gravity="top"
+        android:background="@color/white"
+        android:text="    \n    My Hub "
+        android:textAlignment="viewStart"
+        android:textColor="@color/color_subtitle"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:textStyle="normal"
+        android:textSize="18dp" />
+
+        <View
+        android:id="@+id/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_alignTop="@id/hubButton"
+            android:layout_centerHorizontal="true"
+        android:background="@color/grey"
+        android:visibility="visible"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp" />
 
         <TextView
-            android:id="@+id/description1"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_subtitle"
+            android:layout_alignTop="@+id/rectangle"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignStart="@+id/hubButton"
+            android:text="Get parameter from my Sky HUB"
+            android:elevation="2dp"/>
 
-            tools:text="Connection details of my hub"
-            android:layout_above="@+id/mobileButton"
-            android:layout_alignParentStart="true" />
-
-
-        <Button
-            android:id="@+id/hubButton"
-            android:layout_width="344dp"
-            android:layout_height="105dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="85dp"
-            android:background="@color/white"
-            android:text="My Hub "
-            android:textAlignment="viewStart"
-            android:textColor="@color/color_subtitle"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="203dp" />
 
         <Button
+            android:layout_marginTop="15dp"
             android:id="@+id/mobileButton"
-            android:layout_width="383dp"
-            android:layout_height="105dp"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="top"
+            android:layout_below="@+id/hubButton"
+            android:layout_height="110dp"
             android:background="@color/white"
-
+            android:text="    \n    Handset details "
             android:textAlignment="viewStart"
             android:textColor="@color/color_subtitle"
-            android:textSize="18dp"
-            android:text="Handset Details"
-            tools:layout_editor_absoluteX="-8dp"
-            tools:layout_editor_absoluteY="90dp"
-            android:layout_below="@+id/hubButton"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="27dp" />
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:textSize="18dp" />
 
+        <View
+            android:id="@+id/rectangle2"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_alignTop="@id/mobileButton"
+            android:layout_centerHorizontal="true"
+            android:background="@color/grey"
+            android:visibility="visible"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rectangle2"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignStart="@+id/hubButton"
+            android:text="Get parameter from my handset"
+            android:elevation="2dp"/>
+
+        <ImageView
+        android:id="@+id/image_hub"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:elevation="2dp"
+            app:srcCompat="@drawable/hub3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp" />
+
+        <ImageView
+            android:id="@+id/image_hub"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="2dp"
+            app:srcCompat="@drawable/pixel"
+            android:layout_alignTop="@+id/mobileButton"
+            android:layout_alignEnd="@+id/mobileButton"
+            android:layout_marginEnd="31dp" />
 
 
     </RelativeLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>
