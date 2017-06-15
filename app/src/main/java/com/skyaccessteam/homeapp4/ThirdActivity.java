@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ThirdActivity extends AppCompatActivity {
@@ -32,8 +33,6 @@ public class ThirdActivity extends AppCompatActivity {
     ImageView likeImage;
     TextView statusText;
     TextView statusText2;
-
-
     String display;
     String freq;
     String linkSpeed;
@@ -43,10 +42,12 @@ public class ThirdActivity extends AppCompatActivity {
     String ip;
     String mac;
     String rssi;
-
     ProgressBar progressBar;
     private int progressStatus =0;
     private Handler handler = new Handler();
+    private Handler mHandler = new Handler();
+    private final Handler handler3 = new Handler();
+    //Runnable refresh;
 
 
 
@@ -57,7 +58,14 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
+        System.out.println("------------on create");
         thirdProgressBar();
+        delay();
+
+        // desde aqui
+
+
+        // hasta aqui
 
         //value3 = (TextView)findViewById(R.id.value3);
         deviceSSID_Value = (TextView)findViewById(R.id.deviceSSID_Value);
@@ -77,11 +85,7 @@ public class ThirdActivity extends AppCompatActivity {
         likeImage = (ImageView) findViewById(R.id.likeImage);
         statusText2 = (TextView)findViewById(R.id.statusText2);
 
-        delay();
-
-
-
-
+       // delay();
 
 
 
@@ -116,12 +120,16 @@ public class ThirdActivity extends AppCompatActivity {
 //            }
 //        });
 
+        this.mHandler = new Handler();
+
+//        this.mHandler.postDelayed(m_Runnable,5000);
+
     }
 
 
     private void thirdProgressBar(){
 
-
+        System.out.println("------------third progress bar");
         //progressBar.setVisibility(View.VISIBLE);
 
         progressStatus =0;
@@ -147,11 +155,67 @@ public class ThirdActivity extends AppCompatActivity {
             }
         }).start();
 
+    }
+
+    public void prueba2 (){
+
+        Thread t=new Thread(){
+            @Override
+            public void run(){
+                while (!isInterrupted()){
+                    try {
+                        Thread.sleep(2500);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //count++;
+                                System.out.println("probando el nuevo timer 3 sec");
+                                //getWifiInfo();
+
+                                WifiManager wifiManager2 = (WifiManager) getSystemService(WIFI_SERVICE);
+                                WifiInfo wifiInfo2 = wifiManager2.getConnectionInfo();
+
+                                rssi +=  wifiInfo2.getRssi();
+                                rssi = rssi.substring(rssi.indexOf("null") + 4 , rssi.length());
+                                deviceRSSI_Value.setText(rssi);
+                                System.out.println("rssi es: " +rssi);
+
+
+
+                            }
+                        });
+
+
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+
+
+        }; t.start();
+
+
 
 
     }
 
+    private void doTheAutoRefresh() {
+        handler3.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getWifiInfo(); // this is where you put your refresh code
+                doTheAutoRefresh();
+            }
+        }, 3000);
+    }
+
     public void delay (){
+        System.out.println("------------delay");
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -162,28 +226,71 @@ public class ThirdActivity extends AppCompatActivity {
                 //getTextPage2();
                 progressBar.setVisibility(View.INVISIBLE);
                 //deviceIP_Value.setText("hola");
-                getWifiInfo();
+                 getWifiInfo();
+                //doTheAutoRefresh();
+                //refresh();
+                //delay2();
+                prueba2();
                 statusText.setVisibility(View.VISIBLE);
                 statusText2.setVisibility(View.VISIBLE);
                 likeImage.setVisibility(View.VISIBLE);
 
-
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }
         }, 4000);
+    }
+
+//    private final Runnable m_Runnable = new Runnable()
+//    {
+//
+//        public void run()
+//
+//        {
+//            Toast.makeText(ThirdActivity.this,"in runnable",Toast.LENGTH_SHORT).show();
+//            getWifiInfo();
+//
+//            ThirdActivity.this.mHandler.postDelayed(m_Runnable, 5000);
+//
+//        }
+//
+//    };//runnable
+
+    public void refresh(){
+        System.out.println("------------refresh");
+        int x=0;
+        while (x<1){
+            //delay2();
+
+        }
+
+    }
+
+    public void delay2 (){
+        System.out.println("------------delay2");
+        final Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                System.out.println("hola a a a a ");
+                startActivity(new Intent(ThirdActivity.this,ThirdActivity.class));
+                getWifiInfo();
+                delay2();
+
+
+            }
+        }, 2000);
 
 
     }
 
 
-    private void getWifiInfo() {
-
+    public void getWifiInfo() {
 
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 
-
-
+        System.out.println("------------geetWifiInfo");
 
         ssid +=  wifiInfo.getSSID();
         ssid = ssid.substring(ssid.indexOf("null") + 5 , ssid.length()-1);
@@ -239,10 +346,6 @@ public class ThirdActivity extends AppCompatActivity {
         } else {  } } } } } } } } } } } }} }
 
 
-
-
-
-
         netId +=  wifiInfo.getNetworkId();
         netId = netId.substring(netId.indexOf("null") + 4 , netId.length());
         deviceNetId_Value.setText(netId);
@@ -256,18 +359,7 @@ public class ThirdActivity extends AppCompatActivity {
         mac = mac.substring(mac.indexOf("null") + 4 , mac.length());
         deviceMAC_Value.setText(mac);
 
-
-
-
-
-
-
-
-
-
-
     }
-
 
 
 
