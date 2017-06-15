@@ -28,6 +28,7 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:background="@color/white"
+
             android:visibility="visible" />
 
         <TextView
@@ -37,11 +38,12 @@
             android:layout_alignBottom="@+id/rectangle_at_the_top"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="11dp"
-            android:text="Connection with my Sky HUB"
+            android:text="Local connection with my Sky HUB"
             android:textColor="@color/color_subtitle"
+            android:textStyle="bold"
             android:textSize="18dp"
 
-            android:textStyle="bold" />
+             />
 
         <TextView
             android:id="@+id/deviceSSID_Text"
@@ -332,12 +334,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/likeImage"
-            android:visibility="invisible"
-            android:text="Connection: Very Good"
+            android:visibility="gone"
+            android:text="Connection with My Sky Hub:"
             android:textSize="20dp"
             android:textColor="@color/color1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp" />
+        <TextView
+            android:id="@+id/statusText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statusText"
+            android:visibility="gone"
+            android:text="Very Good"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:textColor="@color/color1"
+            android:layout_centerHorizontal="true"
+            />
 
         <!--<View-->
             <!--android:id="@+id/rectangle_at_the_bottom"-->

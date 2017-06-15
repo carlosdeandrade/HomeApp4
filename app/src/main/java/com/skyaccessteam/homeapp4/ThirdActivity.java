@@ -31,6 +31,7 @@ public class ThirdActivity extends AppCompatActivity {
     Button bv_getGraphs;
     ImageView likeImage;
     TextView statusText;
+    TextView statusText2;
 
 
     String display;
@@ -74,6 +75,7 @@ public class ThirdActivity extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(R.id.myProgressBar3);
         statusText = (TextView)findViewById(R.id.statusText);
         likeImage = (ImageView) findViewById(R.id.likeImage);
+        statusText2 = (TextView)findViewById(R.id.statusText2);
 
         delay();
 
@@ -162,7 +164,9 @@ public class ThirdActivity extends AppCompatActivity {
                 //deviceIP_Value.setText("hola");
                 getWifiInfo();
                 statusText.setVisibility(View.VISIBLE);
+                statusText2.setVisibility(View.VISIBLE);
                 likeImage.setVisibility(View.VISIBLE);
+
 
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }

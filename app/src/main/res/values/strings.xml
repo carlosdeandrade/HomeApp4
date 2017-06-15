@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Sky Hub</string>
+    <string name="app_name">My Sky Hub App</string>
 
     <string name="ssid_name">SSID </string>
     <string name="bv_getConnet"> MyHub Details </string>
@@ -21,7 +21,7 @@
     <string name="deviceChannel_Text">  Channel </string>
     <string name="deviceRSSI_Text">  Signal Strength (RSSI)</string>
     <string name="bv_getDeviceData"> handset details </string>
-    <string name="bv_getGraphs">  \n            Wi-Fi ANALYZER </string>
+    <string name="bv_getGraphs">  \n            Wi-Fi Analyzer </string>
 
 
 </resources>

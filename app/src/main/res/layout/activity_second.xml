@@ -28,10 +28,11 @@
             android:layout_alignBottom="@+id/rectangle_at_the_top"
             android:layout_marginBottom="11dp"
             android:layout_centerHorizontal="true"
-            android:textColor="#0D47A1"
+            android:textColor="@color/color_subtitle"
             android:text="My Hub Details"
+            android:textStyle="bold"
             android:textSize="18dp"
-            android:textStyle="bold" />
+             />
 
         <TextView
             android:id="@+id/manufacturer_text"
@@ -303,9 +304,10 @@
             android:layout_alignBottom="@id/rectangle_at_the_bottom"
             android:gravity="top"
             android:layout_below="@+id/hubButton"
+            android:textAllCaps="false"
             android:layout_height="110dp"
             android:background="@color/white"
-            android:text="@string/bv_getGraphs"
+            android:text="\n     Wi-Fi Analyzer"
             android:textAlignment="viewStart"
             android:textColor="@color/color_subtitle"
             android:elevation="0dp"

@@ -15,11 +15,21 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp">
 
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="24dp"
+            android:layout_centerHorizontal="true"
+            android:text="Good Morning Carlos" />
+
         <Button
             android:layout_marginTop="80dp"
         android:id="@+id/hubButton"
         android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
         android:layout_height="110dp"
             android:gravity="top"
         android:background="@color/white"
@@ -44,13 +54,13 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/rectangle"
             android:layout_marginTop="55dp"
             android:layout_marginLeft="20dp"
             android:layout_alignStart="@+id/hubButton"
-            android:text="Get parameter from my Sky HUB"
+            android:text="Get details of my Sky HUB"
             android:elevation="2dp"/>
 
 
@@ -63,7 +73,8 @@
             android:layout_below="@+id/hubButton"
             android:layout_height="110dp"
             android:background="@color/white"
-            android:text="    \n    Handset details "
+            android:textAllCaps="false"
+            android:text="    \n    Handset  "
             android:textAlignment="viewStart"
             android:textColor="@color/color_subtitle"
             android:layout_marginLeft="15dp"
@@ -89,7 +100,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginLeft="20dp"
             android:layout_alignStart="@+id/hubButton"
-            android:text="Get parameter from my handset"
+            android:text="Get details of my wireless connection"
             android:elevation="2dp"/>
 
         <ImageView
@@ -111,6 +122,57 @@
             android:layout_alignTop="@+id/mobileButton"
             android:layout_alignEnd="@+id/mobileButton"
             android:layout_marginEnd="31dp" />
+
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/shieldButton"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="top"
+            android:layout_below="@+id/mobileButton"
+            android:textAllCaps="false"
+            android:layout_height="110dp"
+            android:background="@color/white"
+            android:text="    \n    Sky Shield "
+            android:textAlignment="viewStart"
+            android:textColor="@color/color_subtitle"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:textSize="18dp" />
+
+        <View
+            android:id="@+id/rectangle3"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_alignTop="@id/shieldButton"
+            android:layout_centerHorizontal="true"
+            android:background="@color/grey"
+            android:visibility="visible"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/shieldButton"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignStart="@+id/hubButton"
+            android:text="Protect your home with Parental Control &amp; BB Shield"
+            android:elevation="2dp"/>
+
+        <ImageView
+            android:id="@+id/image_hub"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="2dp"
+            app:srcCompat="@drawable/shield"
+            android:layout_alignTop="@+id/shieldButton"
+            android:layout_alignEnd="@+id/shieldButton"
+            android:layout_marginEnd="31dp" />
+
 
 
     </RelativeLayout>

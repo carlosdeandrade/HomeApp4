@@ -78,18 +78,19 @@ public class SecondActivity extends AppCompatActivity {
         t1 = (TextView)findViewById(R.id.US_text);
         t2 = (TextView)findViewById(R.id.subtittle);
 
-//        Typeface font1 = Typeface.createFromAsset(getAssets(),"ComingSoon.ttf");
-//        Typeface font2 = Typeface.createFromAsset(getAssets(),"ComingSoon.ttf");
-//        Typeface font3 = Typeface.createFromAsset(getAssets(),"ComingSoon.ttf");
-//        manufacturerValue.setTypeface(font2);
-//        modelValue.setTypeface(font2);
-//        firmwareValue.setTypeface(font2);
-//        dslDriverValue.setTypeface(font2);
-//        upSpeedValue.setTypeface(font2);
-//        downSpeedValue.setTypeface(font2);
-//        ssid.setTypeface(font2);
-//        t1.setTypeface(font2);
-//        t2.setTypeface(font3);
+//        Typeface font1 = Typeface.createFromAsset(getAssets(),"exo-light.otf");
+//        Typeface font2 = Typeface.createFromAsset(getAssets(),"exo-regular.otf");
+////        Typeface font3 = Typeface.createFromAsset(getAssets(),"ComingSoon.ttf");
+//        manufacturerValue.setTypeface(font1);
+//        modelValue.setTypeface(font1);
+//        firmwareValue.setTypeface(font1);
+//        dslDriverValue.setTypeface(font1);
+//        upSpeedValue.setTypeface(font1);
+//        downSpeedValue.setTypeface(font1);
+//        ssid.setTypeface(font1);
+//
+//        t1.setTypeface(font1);
+//        t2.setTypeface(font1);
 
         webView = (WebView)findViewById(R.id.wv_dummy);
         webView.getSettings().setJavaScriptEnabled(true);
