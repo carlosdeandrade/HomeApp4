@@ -60,7 +60,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginLeft="20dp"
             android:layout_alignStart="@+id/hubButton"
-            android:text="Get details of my Sky HUB"
+            android:text="Details of my Sky HUB"
             android:elevation="2dp"/>
 
 
@@ -100,7 +100,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginLeft="20dp"
             android:layout_alignStart="@+id/hubButton"
-            android:text="Get details of my wireless connection"
+            android:text="Details of my wireless connection"
             android:elevation="2dp"/>
 
         <ImageView
@@ -160,7 +160,7 @@
             android:layout_marginTop="55dp"
             android:layout_marginLeft="20dp"
             android:layout_alignStart="@+id/hubButton"
-            android:text="Protect your home with Parental Control &amp; BB Shield"
+            android:text="Protect my home with Parental Control &amp; BB Shield"
             android:elevation="2dp"/>
 
         <ImageView
