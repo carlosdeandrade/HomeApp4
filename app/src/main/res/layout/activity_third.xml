@@ -93,6 +93,7 @@
             android:id="@+id/deviceRSSI_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/deviceRSSI_Text"
             android:layout_alignLeft="@+id/deviceSSID_Text"
             android:textColor="@color/color1"
@@ -139,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/deviceSSID_Text"
             android:layout_below="@id/deviceMAC_Text"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_marginTop="8dp"
             android:text="@string/deviceIP_Text"
             android:textColor="@color/color1"
@@ -148,7 +149,7 @@
         <TextView
             android:id="@+id/deviceIP_Value"
             android:layout_width="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/deviceIP_Text"
             android:layout_alignRight="@id/deviceSSID_Value"
@@ -315,6 +316,29 @@
             android:text="@string/bv_getGraphs"
             android:textSize="12dp" />
 
+        <ImageView
+            android:id="@+id/likeImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/like"
+            android:layout_below="@id/deviceLinkSpeed_Text"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:layout_marginTop="60dp"  />
+
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/likeImage"
+            android:visibility="invisible"
+            android:text="Connection: Very Good"
+            android:textSize="20dp"
+            android:textColor="@color/color1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
         <!--<View-->
             <!--android:id="@+id/rectangle_at_the_bottom"-->
             <!--android:layout_width="match_parent"-->
@@ -325,6 +349,8 @@
             <!--android:visibility="visible" />-->
 
     </RelativeLayout>
+
+
 
 
 </android.support.constraint.ConstraintLayout>

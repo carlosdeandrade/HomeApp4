@@ -21,7 +21,7 @@
     <string name="deviceChannel_Text">  Channel </string>
     <string name="deviceRSSI_Text">  Signal Strength (RSSI)</string>
     <string name="bv_getDeviceData"> handset details </string>
-    <string name="bv_getGraphs">  MY HUB \nWi-Fi ANALYZER </string>
+    <string name="bv_getGraphs">  \n            Wi-Fi ANALYZER </string>
 
 
 </resources>

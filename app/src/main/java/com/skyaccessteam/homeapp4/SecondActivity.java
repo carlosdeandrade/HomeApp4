@@ -281,7 +281,7 @@ public class SecondActivity extends AppCompatActivity {
 
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }
-        }, 7000);
+        }, 5000);
 
 
     }

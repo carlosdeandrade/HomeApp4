@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class ThirdActivity extends AppCompatActivity {
     Button bv_getContent;
     Button bv_getDeviceData;
     Button bv_getGraphs;
+    ImageView likeImage;
+    TextView statusText;
 
 
     String display;
@@ -69,6 +72,8 @@ public class ThirdActivity extends AppCompatActivity {
         bv_getDeviceData = (Button)findViewById(R.id.bv_getDeviceData);
         bv_getGraphs = (Button)findViewById(R.id.bv_getGraphs);
         progressBar = (ProgressBar)findViewById(R.id.myProgressBar3);
+        statusText = (TextView)findViewById(R.id.statusText);
+        likeImage = (ImageView) findViewById(R.id.likeImage);
 
         delay();
 
@@ -156,10 +161,12 @@ public class ThirdActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
                 //deviceIP_Value.setText("hola");
                 getWifiInfo();
+                statusText.setVisibility(View.VISIBLE);
+                likeImage.setVisibility(View.VISIBLE);
 
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }
-        }, 5000);
+        }, 4000);
 
 
     }
@@ -239,6 +246,7 @@ public class ThirdActivity extends AppCompatActivity {
         ip +=  wifiInfo.getIpAddress();
         ip = ip.substring(ip.indexOf("null") + 4 , ip.length());
         deviceIP_Value.setText(ip);
+        System.out.println(ip);
 
         mac +=  wifiInfo.getMacAddress();
         mac = mac.substring(mac.indexOf("null") + 4 , mac.length());
