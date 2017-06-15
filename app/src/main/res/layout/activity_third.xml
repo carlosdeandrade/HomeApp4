@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/deviceSSID_Text"
             android:layout_below="@id/deviceMAC_Text"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_marginTop="8dp"
             android:text="@string/deviceIP_Text"
             android:textColor="@color/color1"
@@ -151,7 +151,7 @@
         <TextView
             android:id="@+id/deviceIP_Value"
             android:layout_width="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/deviceIP_Text"
             android:layout_alignRight="@id/deviceSSID_Value"
@@ -319,14 +319,24 @@
             android:textSize="12dp" />
 
         <ImageView
-            android:id="@+id/likeImage"
+        android:id="@+id/likeImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/like"
+        android:layout_below="@id/deviceLinkSpeed_Text"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:layout_marginTop="40dp"  />
+
+        <ImageView
+            android:id="@+id/dislikeImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/like"
+            app:srcCompat="@drawable/dislike"
             android:layout_below="@id/deviceLinkSpeed_Text"
             android:layout_centerHorizontal="true"
             android:visibility="invisible"
-            android:layout_marginTop="60dp"  />
+            android:layout_marginTop="40dp"  />
 
 
         <TextView
@@ -334,21 +344,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/likeImage"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:text="Connection with My Sky Hub:"
             android:textSize="20dp"
             android:textColor="@color/color1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="-20dp" />
         <TextView
             android:id="@+id/statusText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/statusText"
-            android:visibility="gone"
-            android:text="Very Good!"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
+            android:visibility="visible"
+            android:text=" "
+            android:layout_marginTop="20dp"
+            android:textStyle="normal"
             android:textSize="22dp"
             android:textColor="@color/color1"
             android:layout_centerHorizontal="true"

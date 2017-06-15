@@ -6,13 +6,17 @@ import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.nio.ByteOrder;
 
 
 public class ThirdActivity extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class ThirdActivity extends AppCompatActivity {
     Button bv_getDeviceData;
     Button bv_getGraphs;
     ImageView likeImage;
+    ImageView dislikeImage;
     TextView statusText;
     TextView statusText2;
     String display;
@@ -42,6 +47,7 @@ public class ThirdActivity extends AppCompatActivity {
     String ip;
     String mac;
     String rssi;
+    int signal;
     ProgressBar progressBar;
     private int progressStatus =0;
     private Handler handler = new Handler();
@@ -83,6 +89,7 @@ public class ThirdActivity extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(R.id.myProgressBar3);
         statusText = (TextView)findViewById(R.id.statusText);
         likeImage = (ImageView) findViewById(R.id.likeImage);
+        dislikeImage = (ImageView) findViewById(R.id.dislikeImage);
         statusText2 = (TextView)findViewById(R.id.statusText2);
 
        // delay();
@@ -157,7 +164,7 @@ public class ThirdActivity extends AppCompatActivity {
 
     }
 
-    public void prueba2 (){
+    public void autoRefresh (){
 
         Thread t=new Thread(){
             @Override
@@ -172,7 +179,7 @@ public class ThirdActivity extends AppCompatActivity {
                                 //count++;
                                 System.out.println("probando el nuevo timer 3 sec");
                                 //getWifiInfo();
-
+                                progressBar.setVisibility(View.INVISIBLE);
                                 WifiManager wifiManager2 = (WifiManager) getSystemService(WIFI_SERVICE);
                                 WifiInfo wifiInfo2 = wifiManager2.getConnectionInfo();
 
@@ -180,6 +187,22 @@ public class ThirdActivity extends AppCompatActivity {
                                 rssi = rssi.substring(rssi.indexOf("null") + 4 , rssi.length());
                                 deviceRSSI_Value.setText(rssi);
                                 System.out.println("rssi es: " +rssi);
+                                signal=Integer.parseInt(rssi);
+                                System.out.println("signal es: " +signal);
+                                //statusText.setVisibility(View.VISIBLE);
+                                if (signal>-70){
+                                    System.out.println("buena senal");
+                                    likeImage.setVisibility(View.VISIBLE);
+                                    dislikeImage.setVisibility(View.INVISIBLE);
+                                    //statusText2.setVisibility(View.VISIBLE);
+                                    statusText2.setText("Very good Wi-Fi connection!");
+
+                                } else {
+                                    System.out.println("mala senal");
+                                    likeImage.setVisibility(View.INVISIBLE);
+                                    dislikeImage.setVisibility(View.VISIBLE);
+                                    statusText2.setText("Poor connection");
+                                }
 
 
 
@@ -195,24 +218,19 @@ public class ThirdActivity extends AppCompatActivity {
 
             }
 
-
-
         }; t.start();
 
-
-
-
     }
 
-    private void doTheAutoRefresh() {
-        handler3.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getWifiInfo(); // this is where you put your refresh code
-                doTheAutoRefresh();
-            }
-        }, 3000);
-    }
+//    private void doTheAutoRefresh() {
+//        handler3.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                getWifiInfo(); // this is where you put your refresh code
+//                doTheAutoRefresh();
+//            }
+//        }, 3000);
+//    }
 
     public void delay (){
         System.out.println("------------delay");
@@ -224,16 +242,15 @@ public class ThirdActivity extends AppCompatActivity {
                 //bv_getContent.setVisibility(View.VISIBLE);
                 //getTextPag1();
                 //getTextPage2();
-                progressBar.setVisibility(View.INVISIBLE);
+               // progressBar.setVisibility(View.INVISIBLE);
                 //deviceIP_Value.setText("hola");
                  getWifiInfo();
                 //doTheAutoRefresh();
                 //refresh();
                 //delay2();
-                prueba2();
-                statusText.setVisibility(View.VISIBLE);
-                statusText2.setVisibility(View.VISIBLE);
-                likeImage.setVisibility(View.VISIBLE);
+                autoRefresh();
+
+                //likeImage.setVisibility(View.VISIBLE);
 
                 //buttons[inew][jnew].setBackgroundColor(Color.BLACK);
             }
@@ -352,8 +369,18 @@ public class ThirdActivity extends AppCompatActivity {
 
         ip +=  wifiInfo.getIpAddress();
         ip = ip.substring(ip.indexOf("null") + 4 , ip.length());
-        deviceIP_Value.setText(ip);
+        //deviceIP_Value.setText(ip);
         System.out.println(ip);
+
+        int ip = wifiInfo.getIpAddress();
+        String ipAddress = Formatter.formatIpAddress(ip);
+        System.out.println("ip addressssssss: "+ipAddress);
+        deviceIP_Value.setText(ipAddress);
+
+//        ipAddress = (ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN)) ?
+//                Integer.reverseBytes(ipAddress) : ipAddress;
+//        System.out.println("ip addressssssss: "+ipAddress);
+
 
         mac +=  wifiInfo.getMacAddress();
         mac = mac.substring(mac.indexOf("null") + 4 , mac.length());
