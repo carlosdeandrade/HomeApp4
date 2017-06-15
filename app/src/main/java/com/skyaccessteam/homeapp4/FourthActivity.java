@@ -81,7 +81,7 @@ public class FourthActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(baseUrl4);
         webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(false);
 
 
 //        //---- Starts the Bars Graph
